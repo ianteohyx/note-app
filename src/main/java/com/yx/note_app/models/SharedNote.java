@@ -1,23 +1,19 @@
 package com.yx.note_app.models;
 
-import com.yx.note_app.models.compositekeys.SharedNoteId;
 import jakarta.persistence.*;
 import com.yx.note_app.enums.Permission;
 
 @Entity
-@Table(name = "SharedNote")
-public class SharedNote {
-
-    @EmbeddedId
-    private SharedNoteId id;
-
+@Table(
+        name = "SharedNote",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"note_id", "shared_to_user_id"})
+)
+public class SharedNote extends Model{
     @ManyToOne
-    @MapsId("noteId")
     @JoinColumn(name = "note_id")
     private Note note;
 
     @ManyToOne
-    @MapsId("sharedToUserId")
     @JoinColumn(name = "shared_to_user_id")
     private User sharedToUser;
 
@@ -26,14 +22,6 @@ public class SharedNote {
     private Permission permission;
 
     public SharedNote() {
-    }
-
-    public SharedNoteId getId() {
-        return id;
-    }
-
-    public void setId(SharedNoteId id) {
-        this.id = id;
     }
 
     public Note getNote() {

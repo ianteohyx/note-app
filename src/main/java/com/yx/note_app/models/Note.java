@@ -6,10 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Note")
-public class Note {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Note extends Model{
 
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -39,14 +36,6 @@ public class Note {
     @PreUpdate
     protected void onUpdate() {
         dateModified = LocalDateTime.now();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getContent() {

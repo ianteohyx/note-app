@@ -5,11 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class User extends Model{
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -24,14 +20,6 @@ public class User {
     private List<SharedNote> sharedNotes;
 
     public User() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

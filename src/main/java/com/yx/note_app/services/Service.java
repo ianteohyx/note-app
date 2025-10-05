@@ -1,7 +1,8 @@
 package com.yx.note_app.services;
 
-import com.yx.note_app.enums.ErrorCode;
+import com.yx.note_app.enums.ResponseOutcome;
 import com.yx.note_app.services.reponse.ApiResponse;
+import com.yx.note_app.services.reponse.ResponseDirectory;
 import com.yx.note_app.services.request.ApiRequest;
 
 public abstract class Service<Request extends ApiRequest, Response extends ApiResponse> {
@@ -10,15 +11,15 @@ public abstract class Service<Request extends ApiRequest, Response extends ApiRe
 
      public ApiResponse execute(Request request){
          if (!paramCheck(request)){
-             ApiResponse response = new ApiResponse();
-             response.setSuccess(false);
-             response.setErrorCode(ErrorCode.PARAM_ILLEGAL.getCode());
-             response.setErrorDesc(ErrorCode.PARAM_ILLEGAL.getDesc());
-             return response;
+             return ResponseDirectory.buildFailResponse(ResponseOutcome.PARAM_ILLEGAL);
          }
 
          else{
              return doService(request);
          }
      }
+
+    public static void main(String[] args) {
+
+    }
 }
