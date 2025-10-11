@@ -5,6 +5,7 @@ import com.yx.note_app.repositories.UserRepository;
 import com.yx.note_app.services.reponse.ApiResponse;
 import com.yx.note_app.services.reponse.ResponseDirectory;
 import com.yx.note_app.services.request.SignUpRequest;
+import com.yx.note_app.utils.DefaultLogger;
 import com.yx.note_app.utils.Request2UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Objects;
@@ -13,6 +14,8 @@ import java.util.Objects;
 public class SignUpService extends Service<SignUpRequest, ApiResponse>{
     @Autowired
     private UserRepository userRepository;
+
+    private final DefaultLogger logger = new DefaultLogger(this.getClass());
 
     @Override
     public boolean paramCheck(SignUpRequest request) {
@@ -23,7 +26,7 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
     @Override
     public ApiResponse doService(SignUpRequest request) {
         if (userRepository.existsByUsername(request.getUsername())){
-            System.out.println("username already exist");
+            logger.log("username already exist: " + request.getUsername());
             return ResponseDirectory.buildFailResponse(ResponseOutcome.USERNAME_EXIST);
         }
 
@@ -34,10 +37,10 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
         try {
             Request2UserMapper request2UserMapper = new Request2UserMapper();
             userRepository.save(request2UserMapper.map(request));
-            System.out.println("successfully sign up user");
+            logger.log("successfully sign up: " + request.getUsername());
         }
         catch (Exception e){
-            System.out.println("add to database fail");
+            logger.log("add to database fail: " + request.getUsername());
             return ResponseDirectory.buildFailResponse(ResponseOutcome.PROCESS_FAIL);
         }
 
