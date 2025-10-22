@@ -1,0 +1,8 @@
+[2025-10-22 13:30:08] [SignUpService] username already exist: ryantyc
+[2025-10-22 13:35:25] [SignUpService] username already exist: ryantyc
+[2025-10-22 13:44:00] [SignUpService] username already exist: ryantyc
+[2025-10-22 14:42:38] [LogInService] login success: ryantyc
+[2025-10-22 14:42:45] [LogInService] login fail: ryantyc
+[2025-10-22 14:48:37] [LogInService] login fail: ianteohyx
+[2025-10-22 14:48:44] [LogInService] login success: ianteohyx
+[2025-10-22 14:48:52] [LogInService] login success: yteo0019

@@ -5,7 +5,8 @@ public enum ResponseOutcome {
     PROCESS_FAIL(false, "PROCESS_FAIL", "process fail"),
     PARAM_ILLEGAL(false, "PARAM_ILLEGAL", "parameter in request causing error"),
     USERNAME_EXIST(false, "USERNAME_EXIST", "this username has been taken"),
-    PASSWORD_INVALID(false, "INVALID_PASSWORD", "password format invalid");
+    PASSWORD_INVALID(false, "INVALID_PASSWORD", "password format invalid"),
+    LOGIN_FAIL(false, "LOGIN_FAIL", "login fail");
 
     private final boolean success;
     private final String code;

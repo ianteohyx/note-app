@@ -14,10 +14,10 @@ public class DefaultLogger extends Logger{
     @Override
     public void log(String message) {
         String timestamp = LocalDateTime.now().format(FORMATTER);
-        String logLine = String.format("[%s] [%s] %s", timestamp, this.clazz.getSimpleName(), message);
+        String logLine = String.format("\n[%s] [%s] %s", timestamp, this.clazz.getSimpleName(), message);
 
         try {
-            FileWriter writer = new FileWriter(LOG_FILE_PATH);
+            FileWriter writer = new FileWriter(LOG_FILE_PATH, true);
             writer.write(logLine);
             writer.close();
         } catch (IOException e) {

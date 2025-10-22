@@ -18,8 +18,4 @@ public abstract class Service<Request extends ApiRequest, Response extends ApiRe
              return doService(request);
          }
      }
-
-    public static void main(String[] args) {
-
-    }
 }

@@ -31,6 +31,7 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
         }
 
         if (request.getPassword().length() < 8){
+            logger.log("password is invalid: " + request.getUsername());
             return ResponseDirectory.buildFailResponse(ResponseOutcome.PASSWORD_INVALID);
         }
 
@@ -38,12 +39,11 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
             Request2UserMapper request2UserMapper = new Request2UserMapper();
             userRepository.save(request2UserMapper.map(request));
             logger.log("successfully sign up: " + request.getUsername());
+            return ResponseDirectory.buildSuccessResponse();
         }
         catch (Exception e){
             logger.log("add to database fail: " + request.getUsername());
             return ResponseDirectory.buildFailResponse(ResponseOutcome.PROCESS_FAIL);
         }
-
-        return ResponseDirectory.buildSuccessResponse();
     }
 }
