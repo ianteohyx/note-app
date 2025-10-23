@@ -6,3 +6,10 @@
 [2025-10-22 14:48:37] [LogInService] login fail: ianteohyx
 [2025-10-22 14:48:44] [LogInService] login success: ianteohyx
 [2025-10-22 14:48:52] [LogInService] login success: yteo0019
+[2025-10-23 17:22:50] [SignUpService] username already exist: yteo0019
+[2025-10-23 17:22:56] [LogInService] login success: ianteohyx
+[2025-10-23 17:46:22] [LogInService] login success: ianteohyx
+[2025-10-23 17:49:22] [LogInService] login success: ianteohyx
+[2025-10-23 17:53:40] [LogInService] login success: ianteohyx
+[2025-10-23 17:54:04] [LogInService] login success: ianteohyx
+[2025-10-23 17:54:41] [LogInService] login success: ianteohyx

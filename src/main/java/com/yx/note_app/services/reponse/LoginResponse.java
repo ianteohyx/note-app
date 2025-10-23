@@ -1,6 +1,6 @@
-package com.yx.note_app.services.request;
+package com.yx.note_app.services.reponse;
 
-public class ApiRequest{
+public class LoginResponse extends ApiResponse{
     private String token;
 
     public String getToken() {

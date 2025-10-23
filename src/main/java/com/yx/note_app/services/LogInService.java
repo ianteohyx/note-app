@@ -7,6 +7,7 @@ import com.yx.note_app.services.reponse.ApiResponse;
 import com.yx.note_app.services.reponse.ResponseDirectory;
 import com.yx.note_app.services.request.LoginRequest;
 import com.yx.note_app.utils.DefaultLogger;
+import com.yx.note_app.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;
@@ -24,13 +25,18 @@ public class LogInService extends Service<LoginRequest, ApiResponse>{
     }
 
     @Override
+    public void determineIfNeedTokenValidation() {
+        setNeedTokenValidation(false);
+    }
+
+    @Override
     public ApiResponse doService(LoginRequest request) {
         try{
             Optional<User> actualUser = userRepository.findByUsername(request.getUsername());
 
             if (actualUser.isPresent() && request.getPassword().equals(actualUser.get().getPassword())) {
                 logger.log("login success: " + request.getUsername());
-                return ResponseDirectory.buildSuccessResponse();
+                return ResponseDirectory.buildSuccessLoginResponse(jwtUtils.generateToken(actualUser.get()));
             }
 
             logger.log("login fail: " + request.getUsername());
@@ -38,8 +44,8 @@ public class LogInService extends Service<LoginRequest, ApiResponse>{
         }
 
         catch (Exception e){
+            System.out.println(e);
             return ResponseDirectory.buildFailResponse(ResponseOutcome.PROCESS_FAIL);
         }
     }
-
 }

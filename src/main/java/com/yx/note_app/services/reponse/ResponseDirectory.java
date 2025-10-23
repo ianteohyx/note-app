@@ -35,4 +35,11 @@ public class ResponseDirectory {
         apiResponse.setResponseOutcome(ResponseOutcome.SUCCESS);
         return apiResponse;
     }
+
+    public static LoginResponse buildSuccessLoginResponse(String token){
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setResponseOutcome(ResponseOutcome.SUCCESS);
+        loginResponse.setToken(token);
+        return loginResponse;
+    }
 }
