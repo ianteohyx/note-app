@@ -1,4 +1,4 @@
-package com.yx.note_app.utils;
+package com.yx.note_app.utils.log;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;

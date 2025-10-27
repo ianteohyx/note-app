@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Note")
+@Table(name = "notes")
 public class Note extends Model{
 
     @Column(columnDefinition = "TEXT")
@@ -15,7 +15,7 @@ public class Note extends Model{
     private String title;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "authorId", nullable = false)
     private User author;
 
     @OneToMany(mappedBy = "note", cascade = CascadeType.ALL)

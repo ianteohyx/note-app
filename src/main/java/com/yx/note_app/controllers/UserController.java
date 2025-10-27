@@ -1,7 +1,7 @@
 package com.yx.note_app.controllers;
 
-import com.yx.note_app.services.LogInService;
-import com.yx.note_app.services.SignUpService;
+import com.yx.note_app.services.service.LogInService;
+import com.yx.note_app.services.service.SignUpService;
 import com.yx.note_app.services.reponse.ApiResponse;
 import com.yx.note_app.services.request.LoginRequest;
 import com.yx.note_app.services.request.SignUpRequest;
@@ -23,7 +23,7 @@ public class UserController {
         return signUpService.execute(signUpRequest);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ApiResponse verifyUser(@RequestBody LoginRequest loginRequest){
         return logInService.execute(loginRequest);
     }

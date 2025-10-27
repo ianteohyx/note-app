@@ -5,7 +5,7 @@ import com.yx.note_app.enums.Permission;
 
 @Entity
 @Table(
-        name = "SharedNote",
+        name = "sharednotes",
         uniqueConstraints = @UniqueConstraint(columnNames = {"note_id", "shared_to_user_id"})
 )
 public class SharedNote extends Model{

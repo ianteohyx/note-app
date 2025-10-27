@@ -1,4 +1,4 @@
-package com.yx.note_app.utils;
+package com.yx.note_app.utils.log;
 
 import java.time.format.DateTimeFormatter;
 

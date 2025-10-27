@@ -13,3 +13,19 @@
 [2025-10-23 17:53:40] [LogInService] login success: ianteohyx
 [2025-10-23 17:54:04] [LogInService] login success: ianteohyx
 [2025-10-23 17:54:41] [LogInService] login success: ianteohyx
+[2025-10-27 16:39:45] [AddNoteService] not-null property references a null or transient value: com.yx.note_app.models.Note.author
+[2025-10-27 16:40:58] [LogInService] login success: ianteohyx
+[2025-10-27 16:41:16] [AddNoteService] not-null property references a null or transient value: com.yx.note_app.models.Note.author
+[2025-10-27 16:46:31] [AddNoteService] not-null property references a null or transient value: com.yx.note_app.models.Note.author
+[2025-10-27 16:51:30] [AddNoteService] not-null property references a null or transient value: com.yx.note_app.models.Note.author
+[2025-10-27 16:57:55] [LogInService] login success: ianteohyx
+[2025-10-27 16:58:15] [AddNoteService] not-null property references a null or transient value: com.yx.note_app.models.Note.author
+[2025-10-27 17:18:06] [LogInService] login success: ianteohyx
+[2025-10-27 17:18:38] [AddNoteService] could not execute statement [Table 'note_app.note' doesn't exist] [insert into note (author_id,content,date_created,date_modified,title) values (?,?,?,?,?)]; SQL [insert into note (author_id,content,date_created,date_modified,title) values (?,?,?,?,?)]
+[2025-10-27 17:26:06] [AddNoteService] could not execute statement [Unknown column 'date_created' in 'field list'] [insert into notes (author_id,content,date_created,date_modified,title) values (?,?,?,?,?)]; SQL [insert into notes (author_id,content,date_created,date_modified,title) values (?,?,?,?,?)]
+[2025-10-27 17:48:12] [LogInService] login success: ianteohyx
+[2025-10-27 18:05:10] [AddNoteService] JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+[2025-10-27 18:05:34] [AddNoteService] JWT expired at 2025-10-27T10:03:12Z. Current time: 2025-10-27T10:05:34Z, a difference of 142667 milliseconds.  Allowed clock skew: 0 milliseconds.
+[2025-10-27 23:21:20] [LogInService] login success: ianteohyx
+[2025-10-28 00:15:33] [LogInService] login success: ianteohyx
+[2025-10-28 00:16:27] [LogInService] login success: yteo0019

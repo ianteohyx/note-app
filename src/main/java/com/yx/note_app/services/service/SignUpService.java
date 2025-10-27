@@ -1,12 +1,12 @@
-package com.yx.note_app.services;
+package com.yx.note_app.services.service;
 
 import com.yx.note_app.enums.ResponseOutcome;
+import com.yx.note_app.models.User;
 import com.yx.note_app.repositories.UserRepository;
 import com.yx.note_app.services.reponse.ApiResponse;
 import com.yx.note_app.services.reponse.ResponseDirectory;
 import com.yx.note_app.services.request.SignUpRequest;
-import com.yx.note_app.utils.DefaultLogger;
-import com.yx.note_app.utils.Request2UserMapper;
+import com.yx.note_app.utils.log.DefaultLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Objects;
 
@@ -19,8 +19,8 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
 
     @Override
     public boolean paramCheck(SignUpRequest request) {
-        return (!Objects.isNull(request) && !Objects.isNull(request.getUsername()) && !request.getUsername().isBlank() &&
-                !Objects.isNull(request.getPassword()) && !request.getPassword().isBlank());
+        return (Objects.nonNull(request) && Objects.nonNull(request.getUsername()) && !request.getUsername().isBlank() &&
+                Objects.nonNull(request.getPassword()) && !request.getPassword().isBlank());
     }
 
     @Override
@@ -40,15 +40,16 @@ public class SignUpService extends Service<SignUpRequest, ApiResponse>{
             return ResponseDirectory.buildFailResponse(ResponseOutcome.PASSWORD_INVALID);
         }
 
-        try {
-            Request2UserMapper request2UserMapper = new Request2UserMapper();
-            userRepository.save(request2UserMapper.map(request));
-            logger.log("successfully sign up: " + request.getUsername());
-            return ResponseDirectory.buildSuccessResponse();
-        }
-        catch (Exception e){
-            logger.log("add to database fail: " + request.getUsername());
-            return ResponseDirectory.buildFailResponse(ResponseOutcome.PROCESS_FAIL);
-        }
+        userRepository.save(buildUser(request));
+        logger.log("successfully sign up: " + request.getUsername());
+        return ResponseDirectory.buildSuccessResponse();
     }
+
+    public User buildUser(SignUpRequest request){
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setPassword(request.getPassword());
+        return user;
+    }
+
 }
