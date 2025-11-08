@@ -1,7 +1,6 @@
 package com.yx.note_app.services.reponse;
 
 import com.yx.note_app.dto.NoteDto;
-import com.yx.note_app.models.Note;
 import java.util.List;
 
 public class GetAllNoteResponse extends ApiResponse {

@@ -77,4 +77,8 @@ public class Note extends Model{
     public void setDateModified(LocalDateTime dateModified) {
         this.dateModified = dateModified;
     }
+
+    public List<SharedNote> getSharedNotes() {
+        return sharedNotes;
+    }
 }

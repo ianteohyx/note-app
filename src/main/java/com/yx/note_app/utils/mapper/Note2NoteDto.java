@@ -8,6 +8,7 @@ public class Note2NoteDto implements Model2Dto<Note, NoteDto> {
     @Override
     public NoteDto toResponse(Note note) {
         NoteDto noteDto = new NoteDto();
+        noteDto.setId(note.getId());
         noteDto.setTitle(note.getTitle());
         noteDto.setContent(note.getContent());
         noteDto.setAuthorName(note.getAuthor().getUsername());

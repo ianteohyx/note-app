@@ -1,7 +1,6 @@
 package com.yx.note_app.services.reponse;
 
 import com.yx.note_app.enums.ResponseOutcome;
-import com.yx.note_app.utils.mapper.Model2Dto;
 
 public class ResponseDirectory {
 
